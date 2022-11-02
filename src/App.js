@@ -1,24 +1,17 @@
-import { } from 'react-router-dom'
-import markdownIt from "markdown-it";
-import Header from "./components/Header";
-import Details from "./components/Details";
-import Main from "./components/Main";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
 
 function App() {
 
-  const md = new markdownIt({
-    html: false,
-    linkify: true,
-    typographer: true,
-    breaks: true,
-  });
 
   return (
-    <>
-      <Header />
-      <Details />
-      <Main md={md} />
-    </>
+    <Router>
+      <>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </>
+    </Router>
   );
 }
 
