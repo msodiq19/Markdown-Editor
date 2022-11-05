@@ -1,14 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Details() {
   const [doc, setDoc] = useState('Untitled')
+
+  useEffect(() => {
+    const doc = JSON.parse(localStorage.getItem("doc_name"));
+    if (doc) {
+      setDoc(doc);
+    }
+  }, [])
+  useEffect(() => {
+    localStorage.setItem('doc_name', JSON.stringify(doc))
+  }, [doc])
 
   return (
     <>
       <div style={style.container}>
         <div style={style.name}>
           <h6 style={style.h5}>Document Name</h6>
-          <input type='text' value={doc} style={style.input} onChange={(e) => setDoc(e.value)} />
+          <input type='text' value={doc} style={style.input} onChange={(e) => setDoc(e.target.value)} />
         </div>
         <div style={style.details}>
           <p>Reading Time: <span>{ }</span></p>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -9,7 +10,9 @@ function Header() {
     <>
       <header style={style.header}>
         <nav style={style.navbar}>
-          <h2>Markdown Editor</h2>
+          <Link to={'/'} style={style.navLink}>
+            <h2>Markdown Editor</h2>
+          </Link>
           <ul className="nav-items" style={style.navItems}>
             <li className="nav-item">
               <a href="nav-link" style={style.navLink}>
@@ -29,13 +32,13 @@ function Header() {
               </a>
             </li>
             <li className="nav-item">
-              <a href="nav-link" style={style.navLink}>
+              <Link to={'/contact'} style={style.navLink}>
                 Contact
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a href="nav-link" style={style.navLink}>
-                <FontAwesomeIcon icon={ faPlus } />
+                <FontAwesomeIcon icon={faPlus} />
               </a>
             </li>
           </ul>
@@ -72,7 +75,7 @@ const style = {
   },
   span: {
     paddingRight: '5px'
-  }
+  },
 };
 
 export default Header;

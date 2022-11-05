@@ -4,7 +4,7 @@ import Preview from './Preview';
 function Main({ md }) {
     const [line, setLine] = useState(1)
     const [lists, setLists] = useState([line])
-    const [markdown, setMarkdown] = useState('')
+    const [markdown, setMarkdown] = useState(`# Heading1`)
     const [preview, setPreview] = useState('')
 
   useEffect(() => {
@@ -79,6 +79,8 @@ const style = {
     width: "49%",
     height: "90%",
     border: "1px solid #ddd",
+    overflow: 'auto',
+    padding: '1em'
   },
   textEditor: {
     width: "100%",
